@@ -1,0 +1,104 @@
+/* reset defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  overflow: clip;
+}
+
+.pane {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+
+  &.hasBorder {
+    .content {
+      border: rgb(var(--areaColor)) 5px solid;
+    }
+    
+  }
+
+}
+
+.pane .content {
+  position: absolute;
+  margin: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  background-color: rgba(var(--areaColor), 0.415);
+  box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
+  overflow: clip;
+}
+
+.pane .corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: rgb(var(--areaColor));
+  border-radius: 50%;
+  border: white 2px solid;
+
+  &.upleft {
+    cursor: nwse-resize;
+    top: 0;
+    left: 0;
+  }
+  &.upright {
+    cursor: nesw-resize;
+    top: 0;
+    right: 0;
+  }
+  &.downleft {
+    cursor: nesw-resize;
+    bottom: 0;
+    left: 0;
+  }
+  &.downright {
+    cursor: nwse-resize;
+    bottom: 0;
+    right: 0;
+  }
+
+  &.up {
+    cursor: n-resize;
+    top: 0;
+    border: none;
+    border-radius: 0;
+    margin: 5px;
+    height: 5px;
+    width: calc(100% - 10px);
+  }
+  &.down {
+    cursor: s-resize;
+    bottom: 0;
+    border: none;
+    border-radius: 0;
+    margin: 5px;
+    height: 5px;
+    width: calc(100% - 10px);
+  }
+  &.left {
+    cursor: w-resize;
+    left: 0;
+    border: none;
+    border-radius: 0;
+    margin: 5px;
+    width: 5px;
+    height: calc(100% - 10px);
+  }
+  &.right {
+    cursor: e-resize;
+    right: 0;
+    border: none;
+    border-radius: 0;
+    margin: 5px;
+    width: 5px;
+    height: calc(100% - 10px);
+  }
+}
+
+.pane.is-dragging .title {
+  background-color: var(--title-bar-highlight-color);
+}
